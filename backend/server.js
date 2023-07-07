@@ -10,4 +10,13 @@ app.get("/data", (req, res) => {
     res.send("heyy dude");
 })
 
+app.get("/", (req, res) => {
+    console.log("heyy suraj, why you are not working");
+});
+
+
+
+
+
+
 app.listen(port, () => console.log(`Server running on port http://localhost:${port} 🔥`));
