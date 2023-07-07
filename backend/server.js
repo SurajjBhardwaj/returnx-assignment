@@ -1,6 +1,10 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
+const connection = require('./config/db');
+const colors = require("colors");
+
+connection();
 
 
 const port = process.env.PORT || 5000;
@@ -19,4 +23,4 @@ app.get("/", (req, res) => {
 
 
 
-app.listen(port, () => console.log(`Server running on port http://localhost:${port} 🔥`));
+app.listen(port, () => console.log(`Server running on port http://localhost:${port}🔥`.blue.bold));
