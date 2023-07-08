@@ -6,16 +6,16 @@ const chatModel = mongoose.Schema({
   isGroupChat: { type: Boolean, default: 0 },
   users: [
     {
-      type: mongoose.Schema.Type.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "User",
     },
   ],
   latestMessage: {
-    type: mongoose.Schema.Type.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "Message",
   },
   groupAdmin: {
-      type: mongoose.Schema.Type.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref:'User',
   }, 
 },{timestamp:true});
