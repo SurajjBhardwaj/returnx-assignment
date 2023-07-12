@@ -5,7 +5,7 @@ import {useHistory} from 'react-router-dom'
 
 const SignUp = () => {
 
-   const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false);
   const [name, setName] = useState()
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
@@ -114,7 +114,7 @@ const SignUp = () => {
       });
       localStorage.setItem("userInfo", JSON.stringify(data))
       setLoading(false);
-      history.push('/chats')
+      history.push('/new')
     } catch (error) {
       console.log(error);
         toast({

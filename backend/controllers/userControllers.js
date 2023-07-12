@@ -84,10 +84,20 @@ const allUsers = asyncHandler(async (req, res) => {
     const users = await User.find(keyword).find({ _id: { $ne: req.user._id } });
     res.send(users);
 
-    console.log(keyword);
-
-    
+  console.log(keyword);
 });
+
+const admin = asyncHandler(async (req, res) => {
+   await User.find()
+    .then((data) => {
+      res.status(200).json(data);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ error: "Failed to fetch data from the database" });
+    });
+});
+
 
 
 
@@ -96,4 +106,5 @@ module.exports = {
   registerUser,
   authUser,
   allUsers,
+  admin,
 };

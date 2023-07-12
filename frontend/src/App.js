@@ -2,13 +2,15 @@
 import './App.css';
 import {Route} from "react-router-dom"
 import HomePage from './pages/HomePage';
-import ChatPage from './pages/ChatPage';
+import newPage from './pages/newPage';
+import AdminPage from './components/Authentication/Admin';
 
 function App() {
   return (
     <div className="App">
       <Route path="/" component={HomePage} exact />
-      <Route path="/chats" component={ChatPage} />
+      <Route path="/new" component={newPage} />
+      <Route path="/admin" component={AdminPage} />
     </div>
   );
 }

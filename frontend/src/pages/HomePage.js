@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
   Container,
   Box,
@@ -11,16 +11,29 @@ import {
 } from "@chakra-ui/react";
 import Login from '../components/Authentication/Login';
 import SignUp from '../components/Authentication/SignUp';
+import { useHistory } from 'react-router-dom';
+
 
 
 const HomePage = () => {
+
+   
+  const history = useHistory();
+  useEffect(() => {
+        const user = JSON.parse(localStorage.getItem("userInfo"));
+    if (user) history.push("/new");
+    
+  }, [history])
+
+
+
   return (
     <Container maxW="xl" centerContent>
       <Box
         d="flex"
         justifyContent="center"
         p={3}
-        bg={"white"}
+        bg={"tomato"}
         width="100%"
         m="40px 0 15px 0"
         borderRadius="5g"
@@ -32,7 +45,7 @@ const HomePage = () => {
           color={"black"}
           textAlign={"center"}
         >
-          Suraj Chat-APP
+          Return x assignment
         </Text>
       </Box>
 
@@ -45,15 +58,15 @@ const HomePage = () => {
       >
         <Tabs variant="soft-rounded">
           <TabList mb="1em">
-            <Tab width={"50%"} >Login</Tab>
             <Tab width={"50%"}>Sign-up</Tab>
+            <Tab width={"50%"}>Login</Tab>
           </TabList>
           <TabPanels>
             <TabPanel>
-             <Login/>
+              <SignUp />
             </TabPanel>
             <TabPanel>
-             <SignUp/>
+              <Login />
             </TabPanel>
           </TabPanels>
         </Tabs>
